@@ -28,11 +28,6 @@ const Header = () => {
                 <FaSignOutAlt /> Logout
               </button>
             </li>
-            <li>
-              <Link to="/register">
-                <FaUser /> Register
-              </Link>
-            </li>
           </>
         ) : (
           <>
