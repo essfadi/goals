@@ -17,7 +17,7 @@ const protect = asyncHandler(async (req, res, next) => {
       next();
     } catch (err) {
       res.status(401);
-      console.log(err);
+      
       throw new Error("Please authenticate");
     }
   }

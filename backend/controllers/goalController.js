@@ -12,7 +12,7 @@ const getGoals = asyncHandler(async (req, res) => {
 
   res.status(200).json(goals);
 });
-// @desc    get Goals
+// @desc    Post Goals
 // @route   POST /api/goals
 // @access  Private
 const setGoals = asyncHandler(async (req, res) => {
@@ -33,8 +33,7 @@ const putGoals = asyncHandler(async (req, res) => {
     throw new Error("Goal not found");
   }
 
-  const user = await User.findById(req.user.id);
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
@@ -56,8 +55,7 @@ const deleteGoals = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("Goal not found");
   }
-  const user = await User.findById(req.user.id);
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
